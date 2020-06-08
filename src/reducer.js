@@ -1,7 +1,7 @@
-const reducer = (state = 0, action) => {
+const reducer = (state = {count: 1}, action) => {
   switch (action.type) {
     case 'ADD': {
-      return action.payload.count;
+      return {count: action.payload.count};
     }
     default: {
       return state;

@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux';
 import {updateCount} from '../firebase';
 
 const Counter = () => {
-  const count = useSelector(state => state);
+  const count = useSelector(state => state.count);
   return <Button title="Press Me" onPress={() => updateCount(count + 1)} />;
 };
 

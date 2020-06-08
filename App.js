@@ -4,7 +4,8 @@ import Counter from './src/components/Counter';
 import Button from './src/components/Button';
 import {Provider} from 'react-redux';
 import {databaseListener} from './src/firebase';
-import store from './src/store';
+import {store, persistor} from './src/store';
+import {PersistGate} from 'redux-persist/integration/react';
 
 const App = () => {
   useEffect(() => {
@@ -14,10 +15,12 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <SafeAreaView>
-        <Counter />
-        <Button />
-      </SafeAreaView>
+      <PersistGate loading={null} persistor={persistor}>
+        <SafeAreaView>
+          <Counter />
+          <Button />
+        </SafeAreaView>
+      </PersistGate>
     </Provider>
   );
 };

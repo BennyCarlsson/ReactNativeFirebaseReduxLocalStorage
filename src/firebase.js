@@ -1,5 +1,5 @@
 import firestore from '@react-native-firebase/firestore';
-import store from './store';
+import {store} from './store';
 
 export const databaseListener = () => {
   return firestore()
